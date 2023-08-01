@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ML API - Diabetes Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fefefe;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #4CAF50;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      color: #333;
+    }
+
+    /* Media query for responsiveness */
+    @media (max-width: 600px) {
+      .container {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Diabetes Prediction</h1>
+    <form action="{{ url_for('predict_datapoint')}}" method="post">
+      <div class="form-group">
+        <label for="Pregnancies">Pregnancies</label>
+        <input type="text" name="Pregnancies" id="Pregnancies" placeholder="Pregnancies" required="required" />
+      </div>
+      <div class="form-group">
+        <label for="Glucose">Glucose</label>
+        <input type="text" name="Glucose" id="Glucose" placeholder="Glucose" required="required" />
+      </div>
+      <div class="form-group">
+        <label for="BloodPressure">Blood Pressure</label>
+        <input type="text" name="BloodPressure" id="BloodPressure" placeholder="Blood Pressure" required="required" />
+      </div>
+      <div class="form-group">
+        <label for="SkinThickness">Skin Thickness</label>
+        <input type="text" name="SkinThickness" id="SkinThickness" placeholder="Skin Thickness" required="required" />
+      </div>
+      <div class="form-group">
+        <label for="Insulin">Insulin</label>
+        <input type="text" name="Insulin" id="Insulin" placeholder="Insulin" required="required" />
+      </div>
+      <div class="form-group">
+        <label for="BMI">BMI</label>
+        <input type="text" name="BMI" id="BMI" placeholder="BMI" required="required" />
+      </div>
+      <div class="form-group">
+        <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+        <input type="text" name="DiabetesPedigreeFunction" id="DiabetesPedigreeFunction" placeholder="Diabetes Pedigree Function" required="required" />
+      </div>
+      <div class="form-group">
+        <label for="Age">Age</label>
+        <input type="text" name="Age" id="Age" placeholder="Age" required="required" />
+      </div>
+
+      <button type="submit" class="btn">Predict</button>
+    </form>
+
+    <div class="result">
+      {{result}}
+    </div>
+  </div>
+</body>
+
+</html>
